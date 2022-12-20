@@ -1,24 +1,24 @@
-import sqlite3 
+import sqlite3
 
-connect = sqlite3.connect('./Part4_DB_Sqlite/patients.db')
- 
-# db object
+connect = sqlite3.connect('/Users/fizzahzaidi/Documents/development/python_projects/flask-with-db/Part4_DB_Sqlite/patients.db')  
 db = connect.cursor()
 
-# delete table patient_table if it exists
 db.execute("DROP TABLE IF EXISTS patient_table")
 connect.commit()
 
-# Creating table, 
-table = """ CREATE TABLE patient_table (
+table =  """ CREATE TABLE patient_table (
             mrn VARCHAR(255) NOT NULL,
             firstname CHAR(25) NOT NULL,
             lastname CHAR(25) NOT NULL,
-            dob CHAR(25) NOT NULL
+            dob CHAR(25) NOT NULL, 
+            ssn CHAR(25) NOT NULL, 
+            streetaddress CHAR(25) NOT NULL, 
+            zipcode CHAR(25) NOT NULL, 
+            city CHAR(25) NOT NULL
         ); """
-
+        
 db.execute(table)
-connect.commit() 
+connect.commit()
 
 db.execute("INSERT INTO patient_table(mrn, firstname, lastname, dob, ssn, streetaddress, zipcode, city) values('12345', 'John', 'Smith', '01/01/2000', '123456789', '123 Water St', '12345', 'New York')")
 db.execute("INSERT INTO patient_table(mrn, firstname, lastname, dob, ssn, streetaddress, zipcode, city) values('23456', 'Jane', 'Doe', '02/02/2001', '789345627', '100 Circle Rd', '34567','New York')")
