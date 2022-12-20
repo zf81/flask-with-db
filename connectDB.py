@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 
 def get_db_connection():
-    conn = sqlite3.connect('/Users/fizzahzaidi/Documents/development/python_projects/flask-with-db/Part4_DB_Sqlite/patients.db')
+    conn = sqlite3.connect('/Users/fizzahzaidi/Documents/development/python_projects/flask-with-db/patients.db')
     conn.row_factory = sqlite3.Row
     return conn
 

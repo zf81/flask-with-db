@@ -1,6 +1,6 @@
 import sqlite3
 
-connect = sqlite3.connect('/Users/fizzahzaidi/Documents/development/python_projects/flask-with-db/Part4_DB_Sqlite/patients.db')  
+connect = sqlite3.connect('/Users/fizzahzaidi/Documents/development/python_projects/flask-with-db/patients.db')  
 db = connect.cursor()
 
 db.execute("DROP TABLE IF EXISTS patient_table")
