@@ -1,24 +1,21 @@
-
 import sqlite3
 
-connect = sqlite3.connect('patients1.db')
-
+connect = sqlite3.connect('./flask-with-db/patients.db')
 db = connect.cursor()
 
 db.execute("DROP TABLE IF EXISTS patient_table")
-
 connect.commit()
 
-#Table
-table =  """ CREATE TABLE patient_table (
+table = """ CREATE TABLE patient_table (
             mrn VARCHAR(255) NOT NULL,
             firstname CHAR(25) NOT NULL,
             lastname CHAR(25) NOT NULL,
-            dob CHAR(25) NOT NULL, 
-            ssn CHAR(25) NOT NULL, 
-            streetaddress CHAR(25) NOT NULL, 
+            dob CHAR(25) NOT NULL,
             zipcode CHAR(25) NOT NULL, 
-            city CHAR(25) NOT NULL
+            race CHAR(25) NOT NULL, 
+            ethnicity CHAR(25) NOT NULL, 
+            lengthOfStay CHAR(25) NOT NULL, 
+            admissionType CHAR(25) NOT NULL
         ); """
 
 db.execute(table)
